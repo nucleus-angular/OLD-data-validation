@@ -1,10 +1,10 @@
 {
   "name": "nucleus-angular-data-validation",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "dependencies": {
-    "lodash": "1.2.x"
   },
   "devDependencies": {
+    "lodash": "1.2.x",
     "unstable-angular-complete": "1.1.4",
     "angular": "1.0.6",
     "angular-mocks": "1.0.6"
