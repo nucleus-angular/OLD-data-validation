@@ -8,7 +8,7 @@ angular.module('nag.dataValidation', [])
 
     notEmpty: function(value){
       var test = value;
-      return (!_(test).isNull() && !_(test).isEmpty() && !_(test).isUndefined());
+      return (test != 0 && test != undefined);
     },
 
     min: function(value, minValue){
