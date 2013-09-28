@@ -1,3 +1,11 @@
+/**
+ * Data Validation Service
+ *
+ * @todo: should this be outside of angular?
+ *
+ * @module nag.dataValidation
+ * @ngservice nagDataValidation
+ */
 angular.module('nag.dataValidation', [])
 .provider('nagDataValidation', function() {
   var validators = {
@@ -42,9 +50,23 @@ angular.module('nag.dataValidation', [])
         /**
          * Validate data.
          *
-         * Additional parameters after validation type are the parameters required for the validation type
+         * Additional parameters after validation type are the parameters required for the validation type.
          *
-         * @param validationType
+         * @method validate
+         *
+         * @param {string} validationType What validation you want to perform
+         *
+         * Built in validator include:
+         *
+         * - email
+         * - notEmpty
+         * - min
+         * - max
+         * - range
+         * - match
+         * - custom
+         *
+         * @return {boolean} Whether or not the data passed the validation
          */
         validate: function(validationType) {
           var validatorParameters = Array.prototype.slice.call(arguments, 1);
