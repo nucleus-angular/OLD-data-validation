@@ -57,27 +57,27 @@ describe('Data Validation', function(){
     });
 
     it('should validate 20 as not less than 10', function() {
-      expect(nagDataValidation.validate('min', 20, 10)).toBe(true);
+      expect(nagDataValidation.validate('minValue', 20, 10)).toBe(true);
     });
 
     it('should validate 10 as less than 20', function() {
-      expect(nagDataValidation.validate('min', 10, 20)).toBe(false);
+      expect(nagDataValidation.validate('minValue', 10, 20)).toBe(false);
     });
 
     it('should validate 20 as more than 10', function() {
-      expect(nagDataValidation.validate('max', 20, 10)).toBe(false);
+      expect(nagDataValidation.validate('maxValue', 20, 10)).toBe(false);
     });
 
     it('should validate 10 as not more than 20', function() {
-      expect(nagDataValidation.validate('max', 10, 20)).toBe(true);
+      expect(nagDataValidation.validate('maxValue', 10, 20)).toBe(true);
     });
 
     it('should validate 15 is within 10 and 20', function() {
-      expect(nagDataValidation.validate('range', 15, 10, 20)).toBe(true);
+      expect(nagDataValidation.validate('rangeValue', 15, 10, 20)).toBe(true);
     });
 
     it('should validate 30 as not within 10 to 20', function() {
-      expect(nagDataValidation.validate('range', 30, 10, 20)).toBe(false);
+      expect(nagDataValidation.validate('rangeValue', 30, 10, 20)).toBe(false);
     });
 
     it('should validate matching data as valid', function() {
@@ -92,6 +92,30 @@ describe('Data Validation', function(){
       expect(nagDataValidation.validate('custom', function(value1, value2) {
         return value1 === 'test' && value2 === 'test2'
       }, 'test', 'test2')).toBe(true);
+    });
+
+    it('should validate "this is a test" has at least 10 characters', function() {
+      expect(nagDataValidation.validate('minLength', 'this is a test', 10)).toBe(true);
+    });
+
+    it('should validate "this is a test" does not have at least 20 characters', function() {
+      expect(nagDataValidation.validate('minLength', 'this is a test', 20)).toBe(false);
+    });
+
+    it('should validate "this is a test" does not exceed 20 characters', function() {
+      expect(nagDataValidation.validate('maxLength', 'this is a test', 20)).toBe(true);
+    });
+
+    it('should validate "this is a test" does exceed 10 characters', function() {
+      expect(nagDataValidation.validate('maxLength', 'this is a test', 10)).toBe(false);
+    });
+
+    it('should validate "this is a test" has between 10 and 20 characters', function() {
+      expect(nagDataValidation.validate('rangeLength', 'this is a test', 10, 20)).toBe(true);
+    });
+
+    it('should validate "this" does not have between 10 and 20 characters', function() {
+      expect(nagDataValidation.validate('rangeLength', 'this', 10, 20)).toBe(false);
     });
   });
 });

@@ -19,19 +19,31 @@ angular.module('nag.dataValidation', [])
       return (test != 0 && test != undefined);
     },
 
-    min: function(value, minValue){
+    minValue: function(value, minValue){
       var value = parseInt(value)
       return (!_(value).isNaN() && value >= minValue);
     },
 
-    max: function(value, maxValue){
+    maxValue: function(value, maxValue){
       var value = parseInt(value)
       return (!_(value).isNaN() && value <= maxValue);
     },
 
-    range: function(value, minValue, maxValue){
+    rangeValue: function(value, minValue, maxValue){
       var value = parseInt(value)
       return (!_(value).isNaN() && value >= minValue && value <= maxValue);
+    },
+
+    minLength: function(value, minValue){
+      return (_(value).isString() && value.length >= minValue);
+    },
+
+    maxLength: function(value, maxValue){
+      return (_(value).isString() && value.length <= maxValue);
+    },
+
+    rangeLength: function(value, minValue, maxValue){
+      return (_(value).isString() && value.length >= minValue && value.length <= maxValue);
     },
 
     match: function(value1, value2){
