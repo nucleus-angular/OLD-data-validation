@@ -8,8 +8,8 @@ module.exports = function(config) {
     preprocessors: {},
     files: [
       'components/lodash/dist/lodash.js',
-      'components/unstable-angular-complete/angular.js',
-      'components/unstable-angular-complete/angular-mocks.js',
+      'components/angular/angular.js',
+      'components/angular-mocks/angular-mocks.js',
       'tests/libraries/mocker.js',
       'tests/*.js',
       '*.js'
