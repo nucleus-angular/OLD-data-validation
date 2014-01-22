@@ -10,7 +10,7 @@ angular.module('nag.dataValidation', [])
 .provider('nagDataValidation', function() {
   var validators = {
     email: function(value){
-      var regex = new RegExp(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
+      var regex = new RegExp(/^[a-z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*$/i);
       return regex.test(value);
     },
 
